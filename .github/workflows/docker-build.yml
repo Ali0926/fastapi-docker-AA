@@ -30,3 +30,4 @@ jobs:
           tags: |
             ${{ env.DOCKER_IMAGE_NAME }}:latest
             ${{ env.DOCKER_IMAGE_NAME }}:${{ github.sha }}
+#comments: This GitHub Actions workflow is triggered by a push to the main branch.
