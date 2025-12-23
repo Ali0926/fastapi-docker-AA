@@ -9,17 +9,19 @@ env:
 
 jobs:
   build-and-push:
+    name: Build and Push to Docker Hub
     runs-on: ubuntu-latest
+    
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-
+      
       - name: Log in to Docker Hub
         uses: docker/login-action@v3
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
-
+      
       - name: Build and push Docker image
         uses: docker/build-push-action@v5
         with:
@@ -28,7 +30,3 @@ jobs:
           tags: |
             ${{ env.DOCKER_IMAGE_NAME }}:latest
             ${{ env.DOCKER_IMAGE_NAME }}:${{ github.sha }}
-
-#comments: This GitHub Actions workflow is triggered by a push to the main branch.
-# It builds a Docker image from the code in the repository and pushes it to Docker Hub with two tags: 'latest' and the commit SHA.
-# The Docker image name is defined in the 'DOCKER_IMAGE_NAME' environment variable, which is set using a secret stored in GitHub Actions secrets.
