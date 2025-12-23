@@ -33,3 +33,4 @@ jobs:
 #comments: This GitHub Actions workflow is triggered by a push to the main branch.
 # It builds a Docker image from the code in the repository and pushes it to Docker Hub with two tags: 'latest' and the commit SHA.
 # The Docker image name is defined in the 'DOCKER_IMAGE_NAME' environment variable, which is set using a secret stored in GitHub Actions secrets.
+# The 'docker/login-action' and 'docker/build-push-action' actions are used to log in to Docker Hub and build/push the Docker image, respectively.
